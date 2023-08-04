@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: melvil-ui
+  labels:
+    app: melvil-ui
+spec:
+  selector:
+    matchLabels:
+      app: melvil-ui
+  template:
+    metadata:
+      labels:
+        app: melvil-ui
+    spec:
+      containers:
+        - name: melvil-ui
+          image: melvil-ui
+          ports:
+            - containerPort: 3000

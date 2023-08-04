@@ -1,6 +1,10 @@
 # synaptiq-melvil
 The truth-aware document manager
 
+Dependencies:
+ctlptl: https://github.com/tilt-dev/ctlptl
+tilt: https://tilt.dev
+
 What's here:
 
 ## ui
