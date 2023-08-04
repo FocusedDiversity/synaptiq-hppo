@@ -1,0 +1,5 @@
+resources:
+  - ./apps.foundationdb.org_foundationdbbackups.yaml
+  - ./apps.foundationdb.org_foundationdbclusters.yaml
+  - ./apps.foundationdb.org_foundationdbrestores.yaml
+  - ./deployment.yaml
