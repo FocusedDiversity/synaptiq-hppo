@@ -1,11 +1,23 @@
 # synaptiq-melvil
 The truth-aware document manager
 
-Dependencies:
+## Dependencies:
+
+docker: https://www.docker.com/products/docker-desktop/
+kind: https://kind.sigs.k8s.io
 ctlptl: https://github.com/tilt-dev/ctlptl
 tilt: https://tilt.dev
 
-What's here:
+## Getting started
+
+Install docker, kind, ctlptl and tilt (see above)
+
+```sh
+make clean-tilt
+
+```
+
+# What's here:
 
 ## ui
 
@@ -13,7 +25,7 @@ Next.js user interface for all the things
 
 ## cp
 
-Postgres + hasura administrative database and api
+Postgres + hasura control plane database and api
 
 
 ## index
