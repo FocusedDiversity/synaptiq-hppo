@@ -1,0 +1,8 @@
+{
+  "name": "melvil-ui",
+  "version": "0.0.1",
+  "description": "Melvil UI",
+  "main": "index.js",
+  "repository": "https://github.com/FocusedDiversity/melvil.git",
+  "license": "GPL"
+}
