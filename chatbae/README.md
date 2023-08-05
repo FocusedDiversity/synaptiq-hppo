@@ -13,12 +13,12 @@ Refer to https://mlc.ai/mlc-llm/docs/get_started/try_out.html
 
 # Always download the libs and the 7b (smallest) model so tests run. You 
 # will need a 64gb+ machine to run the 70b model.
-git submodule init -- dist/prebuilt/lib
-git submodule init -- dist/prebuilt/mlc-chat-Llama-2-7b-chat-hf-q4f16_1
+git submodule update --init -- dist/prebuilt/lib
+git submodule update --init -- dist/prebuilt/mlc-chat-Llama-2-7b-chat-hf-q4f16_1
 # or 
-git submodule init -- dist/prebuilt/mlc-chat-Llama-2-13b-chat-hf-q4f16_1
+git submodule update --init -- dist/prebuilt/mlc-chat-Llama-2-13b-chat-hf-q4f16_1
 #of 
-git submodule init -- dist/prebuilt/mlc-chat-Llama-2-70b-chat-hf-q4f16_1
+git submodule update --init -- dist/prebuilt/mlc-chat-Llama-2-70b-chat-hf-q4f16_1
 
 ## Set up your app tokens
 ```shell
