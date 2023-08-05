@@ -27,6 +27,9 @@ Next.js user interface for all the things
 
 Postgres + hasura control plane database and api
 
+## infrastructure
+
+Shared infrastructure services (databases, storage, queues, etc)
 
 ## index
 
