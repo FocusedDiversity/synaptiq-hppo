@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "ChatBae"
+version = "0.1.0"
+description = "Llama, it really ..."
+authors = ["Erik LaBianca <erik.labianca@synaptiq.ai>"]
+readme = "README.md"
+packages = [{ include = "chatbae" }]
+
+[tool.poetry.dependencies]
+python = "^3.11,<3.12"
+transformers = "^4.31.0"
+slackapi = "^0.0.3"
+slack-bolt = "^1.18.0"
+torch = "^2.0.1"
+torchvision = "^0.15.2"
+torchaudio = "^2.0.2"
+accelerate = "^0.21.0"
+bitsandbytes = "^0.41.0"
+scipy = "^1.11.1"
+source = "^1.2.0"
+pypi = "^2.1"
+aiohttp = "^3.8.5"
+mamba = "^0.11.2"
+python-dotenv-vault = "^0.6.1"
+mlc-ai-nightly = {version = "^0.12.dev1385", source = "mlc"}
+mlc-chat-nightly = {version = "^0.1.dev325", source = "mlc"}
+
+
+[[tool.poetry.source]]
+name = "mlc"
+url = "https://mlc.ai/wheels.html"
+priority = "explicit"
+
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+# pyproject.toml
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests"
+]
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+pytest = "^7.4.0"
+mypy = "^1.4.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

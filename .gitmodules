@@ -1,0 +1,12 @@
+[submodule "chatbae/dist/prebuilt/lib"]
+	path = chatbae/dist/prebuilt/lib
+	url = https://github.com/mlc-ai/binary-mlc-llm-libs.git
+[submodule "chatbae/dist/prebuilt/mlc-chat-Llama-2-13b-chat-hf-q4f16_1"]
+	path = chatbae/dist/prebuilt/mlc-chat-Llama-2-13b-chat-hf-q4f16_1
+	url = https://huggingface.co/mlc-ai/mlc-chat-Llama-2-13b-chat-hf-q4f16_1
+[submodule "chatbae/dist/prebuilt/mlc-chat-Llama-2-70b-chat-hf-q4f16_1"]
+	path = chatbae/dist/prebuilt/mlc-chat-Llama-2-70b-chat-hf-q4f16_1
+	url = https://huggingface.co/mlc-ai/mlc-chat-Llama-2-70b-chat-hf-q4f16_1
+[submodule "chatbae/dist/prebuilt/mlc-chat-Llama-2-7b-chat-hf-q4f16_1"]
+	path = chatbae/dist/prebuilt/mlc-chat-Llama-2-7b-chat-hf-q4f16_1
+	url = https://huggingface.co/mlc-ai/mlc-chat-Llama-2-7b-chat-hf-q4f16_1
