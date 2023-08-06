@@ -58,7 +58,6 @@ class MLCChatConfig:
     @staticmethod
     def uncensored():
         return MLCChatConfig(
-            temperature=1.0,
             max_gen_len=4096,
             conv_config=MLCChatConvConfig(
                 system="""[INST] <<SYS>>
