@@ -20,11 +20,15 @@ async def init_slack_bot(chat_mod: ChatModule):
     async def event_im_message(event, say):
         prompt = event["text"]
         chat_mod.prefill(input=prompt)
-        response = "Houston, we have a problem"
+        offset = 0
         while not chat_mod.stopped():
             chat_mod.decode()
             response = chat_mod.get_message()
-        await say(response)
+            if response[-1] == "\n":
+                new_offset = len(response)
+                await say(response[offset:new_offset])
+                offset = new_offset
+        await say(response[offset:])
 
     @app.command("/hello-bolt-python")
     async def command(ack, body, respond):
