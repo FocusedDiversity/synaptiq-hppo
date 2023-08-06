@@ -26,8 +26,9 @@ async def init_slack_bot(chat_mod: ChatModule):
             response = chat_mod.get_message()
             if "\n" in response[offset:]:
                 new_offset = response.rfind("\n")
-                await say(response[offset:new_offset])
-                offset = new_offset
+                if new_offset > offset:
+                    await say(response[offset:new_offset])
+                    offset = new_offset
         await say(response[offset:])
 
     @app.command("/hello-bolt-python")
