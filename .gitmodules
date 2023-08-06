@@ -10,3 +10,6 @@
 [submodule "chatbae/dist/prebuilt/mlc-chat-Llama-2-7b-chat-hf-q4f16_1"]
 	path = chatbae/dist/prebuilt/mlc-chat-Llama-2-7b-chat-hf-q4f16_1
 	url = https://huggingface.co/mlc-ai/mlc-chat-Llama-2-7b-chat-hf-q4f16_1
+[submodule "vendor/mlc-llm"]
+	path = vendor/mlc-llm
+	url = https://github.com/mlc-ai/mlc-llm.git
