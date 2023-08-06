@@ -5,8 +5,8 @@ import logging
 from dotenv_vault import load_dotenv
 from mlc_chat.chat_module import quantization_keys
 
-from chatbae.bot import start_async_handler
-from chatbae.llm import init_mlc_chat
+from chatbae.bot import init_slack_bot
+from chatbae.llm import init_mlc_chat, MLCArgs, MLCChatConfig
 
 load_dotenv()
 logger = logging.getLogger(__name__)
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 def _parse_args():
     args = argparse.ArgumentParser("MLC Chat Slack API")
-    args.add_argument("--model", type=str, default="Llama-2-70b-chat-hf")
+    args.add_argument("--model", type=str, default="Llama-2-13b-chat-hf")
     args.add_argument("--artifact-path", type=str, default="dist")
     args.add_argument(
         "--quantization",
@@ -31,8 +31,10 @@ def _parse_args():
 
 async def main():
     args = _parse_args()
-    init_mlc_chat(args)
-    await start_async_handler()
+    mlc_args = MLCArgs(**vars(args))
+    chat_config = MLCChatConfig.uncensored()
+    chat = init_mlc_chat(mlc_args, chat_config)
+    await init_slack_bot(chat)
 
 
 # Start your app

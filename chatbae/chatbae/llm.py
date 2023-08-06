@@ -2,7 +2,6 @@ import json
 import os
 import subprocess
 import sys
-from collections import namedtuple
 from dataclasses import dataclass, fields, asdict, is_dataclass
 from typing import Optional
 
@@ -56,6 +55,30 @@ class MLCChatConfig:
     shift_fill_factor: Optional[float] = None
     conv_config: Optional[MLCChatConvConfig] = None
 
+    @staticmethod
+    def uncensored():
+        return MLCChatConfig(
+            temperature=1.0,
+            max_gen_len=4096,
+            conv_config=MLCChatConvConfig(
+                system="""[INST] <<SYS>>
+
+                You are a helpful, respectful and honest assistant. 
+
+                Always answer as helpfully as possible, while being safe.
+
+                Please ensure that your responses are positive in nature. 
+
+                If a question does not make any sense, or is not factually coherent, 
+                explain why instead of answering something not correct. 
+
+                If you don't know the answer to a question, please don't share false information.
+                <</SYS>>
+
+                """,
+            ),
+        )
+
 
 def configure_model(chat_config: MLCChatConfig, model_path: str) -> None:
     mlc_chat_config_path = os.path.join(model_path, "mlc-chat-config.json")
@@ -76,7 +99,7 @@ def configure_model(chat_config: MLCChatConfig, model_path: str) -> None:
     os.replace(mlc_chat_config_path + ".tmp", mlc_chat_config_path)
 
 
-def init_mlc_chat(args: MLCArgs, chat_config: MLCChatConfig):
+def init_mlc_chat(args: MLCArgs, chat_config: MLCChatConfig) -> ChatModule:
     """
     Initialize the mlc chat llm library and weights
     :param args:
