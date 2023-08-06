@@ -2,13 +2,13 @@ from collections import namedtuple
 
 import pytest
 
-from chatbae.llm import init_mlc_chat, LLM_ARGS
+from chatbae.llm import init_mlc_chat, MLCArgs, MLCChatConfig
 
 
 @pytest.fixture(scope="session")
 def chat_mod():
     chat_mod = init_mlc_chat(
-        LLM_ARGS(
+        MLCArgs(
             **dict(
                 artifact_path="dist",
                 model="Llama-2-7b-chat-hf",
@@ -16,7 +16,8 @@ def chat_mod():
                 device_name="metal",
                 device_id=0,
             )
-        )
+        ),
+        MLCChatConfig(**dict(temperature=1.0, max_gen_len=8192)),
     )
     return chat_mod
 

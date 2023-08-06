@@ -1,7 +1,10 @@
+import json
 import os
 import subprocess
 import sys
 from collections import namedtuple
+from dataclasses import dataclass, fields
+from typing import Optional
 
 import tvm
 from mlc_chat import ChatModule
@@ -25,12 +28,43 @@ def _shared_lib_suffix():
     return ".so"
 
 
-LLM_ARGS = namedtuple(
-    "ARGS", ["artifact_path", "model", "quantization", "device_name", "device_id"]
-)
+@dataclass
+class MLCArgs:
+    artifact_path: str
+    model: str
+    quantization: str = "q4f16_1"
+    device_name: str = "metal"
+    device_id: int = 0
 
 
-def init_mlc_chat(args: LLM_ARGS):
+@dataclass
+class MLCChatConfig:
+    temperature: Optional[float] = None
+    repetition_penalty: Optional[float] = None
+    top_p: Optional[float] = None
+    mean_gen_len: Optional[int] = None
+    max_gen_len: Optional[int] = None
+    shift_fill_factor: Optional[float] = None
+
+
+def configure_model(chat_config: MLCChatConfig, model_path: str) -> None:
+    mlc_chat_config_path = os.path.join(model_path, "mlc-chat-config.json")
+    config_file = open(mlc_chat_config_path, "r")
+    config = json.load(config_file)
+    config_file.close()
+
+    for field in fields(chat_config):
+        value = getattr(chat_config, field.name)
+        if value:
+            config[field.name] = value
+
+    config_file = open(mlc_chat_config_path + ".tmp", "w")
+    json.dump(config, config_file, indent=2, sort_keys=True)
+    config_file.close()
+    os.replace(mlc_chat_config_path + ".tmp", mlc_chat_config_path)
+
+
+def init_mlc_chat(args: MLCArgs, chat_config: MLCChatConfig):
     """
     Initialize the mlc chat llm library and weights
     :param args:
@@ -56,8 +90,10 @@ def init_mlc_chat(args: LLM_ARGS):
         args.artifact_path, "prebuilt", f"mlc-chat-{model_dir}"
     )
     if os.path.exists(local_model_path):
+        configure_model(chat_config, prebuilt_model_path)
         chat_mod.reload(lib=lib, model_path=local_model_path)
     elif os.path.exists(prebuilt_model_path):
+        configure_model(chat_config, prebuilt_model_path)
         chat_mod.reload(lib=lib, model_path=prebuilt_model_path)
     else:
         raise ValueError(
