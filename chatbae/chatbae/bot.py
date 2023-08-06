@@ -24,7 +24,7 @@ async def init_slack_bot(chat_mod: ChatModule):
         while not chat_mod.stopped():
             chat_mod.decode()
             response = chat_mod.get_message()
-            if response[-1] == "\n":
+            if "\n" in response[offset:]:
                 new_offset = len(response)
                 await say(response[offset:new_offset])
                 offset = new_offset
