@@ -32,4 +32,4 @@ EOF
 ```
 
 ## Start the server
-poetry run python main.py
+poetry run python -m chatbae.main
