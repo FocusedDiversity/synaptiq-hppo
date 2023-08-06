@@ -3,7 +3,7 @@ import os
 import subprocess
 import sys
 from collections import namedtuple
-from dataclasses import dataclass, fields
+from dataclasses import dataclass, fields, asdict, is_dataclass
 from typing import Optional
 
 import tvm
@@ -38,13 +38,23 @@ class MLCArgs:
 
 
 @dataclass
+class MLCChatConvConfig:
+    system: str
+
+
+@dataclass
 class MLCChatConfig:
+    """
+    https://mlc.ai/mlc-llm/docs/get_started/mlc_chat_config.html
+    """
+
     temperature: Optional[float] = None
     repetition_penalty: Optional[float] = None
     top_p: Optional[float] = None
     mean_gen_len: Optional[int] = None
     max_gen_len: Optional[int] = None
     shift_fill_factor: Optional[float] = None
+    conv_config: Optional[MLCChatConvConfig] = None
 
 
 def configure_model(chat_config: MLCChatConfig, model_path: str) -> None:
@@ -56,6 +66,8 @@ def configure_model(chat_config: MLCChatConfig, model_path: str) -> None:
     for field in fields(chat_config):
         value = getattr(chat_config, field.name)
         if value:
+            if is_dataclass(value):
+                value = asdict(value)
             config[field.name] = value
 
     config_file = open(mlc_chat_config_path + ".tmp", "w")
