@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "wordbae"
+version = "0.1.0"
+description = ""
+authors = ["Erik LaBianca <erik.labianca@synaptiq.ai>"]
+license = "Apache 2"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+llama-cpp-python = {extras = ["server"], version = "^0.1.77"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
