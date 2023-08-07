@@ -13,3 +13,6 @@
 [submodule "vendor/mlc-llm"]
 	path = vendor/mlc-llm
 	url = https://github.com/mlc-ai/mlc-llm.git
+[submodule "vendor/llama.cpp"]
+	path = vendor/llama.cpp
+	url = https://github.com/ggerganov/llama.cpp.git
