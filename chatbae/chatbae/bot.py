@@ -4,6 +4,8 @@ from mlc_chat import ChatModule
 from slack_bolt.adapter.socket_mode.aiohttp import AsyncSocketModeHandler
 from slack_bolt.app.async_app import AsyncApp
 
+from chatbae.response_generator import ResponseGenerator
+
 SLACK_APP_TOKEN = os.getenv("SLACK_APP_TOKEN")
 SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
 SLACK_SIGNING_SECRET = os.getenv("SLACK_SIGNING_SECRET")
@@ -20,16 +22,13 @@ async def init_slack_bot(chat_mod: ChatModule):
     async def event_im_message(event, say):
         prompt = event["text"]
         chat_mod.prefill(input=prompt)
-        offset = 0
+        o = ResponseGenerator()
         while not chat_mod.stopped():
             chat_mod.decode()
-            response = chat_mod.get_message()
-            if "\n" in response[offset:]:
-                new_offset = response.rfind("\n")
-                if new_offset > offset:
-                    await say(response[offset:new_offset])
-                    offset = new_offset
-        await say(response[offset:])
+            response = o.update(chat_mod.get_message())
+            if response:
+                await say(response)
+        await o.update(chat_mod.get_message(), final=True)
 
     @app.command("/hello-bolt-python")
     async def command(ack, body, respond):
