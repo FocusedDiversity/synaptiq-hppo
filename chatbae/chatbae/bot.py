@@ -1,4 +1,5 @@
 import os
+from functools import lru_cache
 
 from mlc_chat import ChatModule
 from slack_bolt.adapter.socket_mode.aiohttp import AsyncSocketModeHandler
@@ -11,8 +12,13 @@ SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
 SLACK_SIGNING_SECRET = os.getenv("SLACK_SIGNING_SECRET")
 
 
-async def init_slack_bot(chat_mod: ChatModule):
+async def init_slack_bot(chat_mod_factory):
     app = AsyncApp(token=SLACK_BOT_TOKEN, signing_secret=SLACK_SIGNING_SECRET)
+    chat_mods = {}
+
+    @lru_cache(maxsize=5)
+    def user_chat_mod(user):
+        return chat_mod_factory()
 
     @app.event("app_home_opened")
     async def handle_app_home_opened_events(body, logger):
@@ -20,6 +26,7 @@ async def init_slack_bot(chat_mod: ChatModule):
 
     @app.event("message")
     async def event_im_message(event, say):
+        chat_mod = user_chat_mod(event)
         prompt = event["text"]
         chat_mod.prefill(input=prompt)
         o = ResponseGenerator()
@@ -28,7 +35,7 @@ async def init_slack_bot(chat_mod: ChatModule):
             response = o.update(chat_mod.get_message())
             if response:
                 await say(response)
-        await o.update(chat_mod.get_message(), final=True)
+        await say(o.update(chat_mod.get_message(), final=True))
 
     @app.command("/hello-bolt-python")
     async def command(ack, body, respond):

@@ -28,13 +28,16 @@ def _parse_args():
     parsed = args.parse_args()
     return parsed
 
+def get_chat_mod(args):
+    def get_bot():
+        mlc_args = MLCArgs(**vars(args))
+        chat_config = MLCChatConfig.uncensored()
+        return init_mlc_chat(mlc_args, chat_config)
+    return get_bot
 
 async def main():
     args = _parse_args()
-    mlc_args = MLCArgs(**vars(args))
-    chat_config = MLCChatConfig.uncensored()
-    chat = init_mlc_chat(mlc_args, chat_config)
-    await init_slack_bot(chat)
+    await init_slack_bot(get_chat_mod(args))
 
 
 # Start your app
