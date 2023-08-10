@@ -26,7 +26,7 @@ async def init_slack_bot(chat_mod_factory):
     async def event_im_message(event, say):
         chat_mod = user_chat_mod(event["user"])
         prompt = event["text"]
-        if "/reset" in prompt:
+        if "##reset" in prompt:
             chat_mod._reset()
             return
 
