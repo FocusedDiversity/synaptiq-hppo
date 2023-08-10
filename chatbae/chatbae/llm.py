@@ -6,7 +6,7 @@ from dataclasses import dataclass, fields, asdict, is_dataclass
 from typing import Optional
 
 import tvm
-from mlc_chat import ChatModule
+from mlc_chat import ChatModule, ChatConfig, ConvConfig
 
 
 def _shared_lib_suffix():
@@ -29,16 +29,11 @@ def _shared_lib_suffix():
 
 @dataclass
 class MLCArgs:
-    artifact_path: str
     model: str
     quantization: str = "q4f16_1"
     device_name: str = "metal"
     device_id: int = 0
 
-
-@dataclass
-class MLCChatConvConfig:
-    system: str
 
 STRIPPED_LLAMA2_PROMPT = """[INST] <<SYS>>
 You are a helpful, respectful and honest assistant. 
@@ -77,84 +72,28 @@ your users' organizations do not do so.
 <</SYS>>
 """
 
-@dataclass
-class MLCChatConfig:
-    """
-    https://mlc.ai/mlc-llm/docs/get_started/mlc_chat_config.html
-    """
 
-    temperature: Optional[float] = None
-    repetition_penalty: Optional[float] = None
-    top_p: Optional[float] = None
-    mean_gen_len: Optional[int] = None
-    max_gen_len: Optional[int] = None
-    shift_fill_factor: Optional[float] = None
-    conv_config: Optional[MLCChatConvConfig] = None
-
-    @staticmethod
-    def uncensored():
-        return MLCChatConfig(
-            max_gen_len=4096,
-            conv_config=MLCChatConvConfig(
-                system=JPHOWARD_PROMPT
-            ),
-        )
-
-
-def configure_model(chat_config: MLCChatConfig, model_path: str) -> None:
-    mlc_chat_config_path = os.path.join(model_path, "mlc-chat-config.json")
-    config_file = open(mlc_chat_config_path, "r")
-    config = json.load(config_file)
-    config_file.close()
-
-    for field in fields(chat_config):
-        value = getattr(chat_config, field.name)
-        if value:
-            if is_dataclass(value):
-                value = asdict(value)
-            config[field.name] = value
-
-    config_file = open(mlc_chat_config_path + ".tmp", "w")
-    json.dump(config, config_file, indent=2, sort_keys=True)
-    config_file.close()
-    os.replace(mlc_chat_config_path + ".tmp", mlc_chat_config_path)
-
-
-def init_mlc_chat(args: MLCArgs, chat_config: MLCChatConfig) -> ChatModule:
+def init_mlc_chat(args: MLCArgs, chat_config: ChatConfig) -> ChatModule:
     """
     Initialize the mlc chat llm library and weights
     :param args:
+    :param chat_config:
     :return:
     """
-    chat_mod = ChatModule(args.device_name, args.device_id)
-    model_path = os.path.join(args.artifact_path, args.model + "-" + args.quantization)
-    model_dir = args.model + "-" + args.quantization
-    model_lib = model_dir + "-" + args.device_name + _shared_lib_suffix()
-    lib_dir = os.path.join(model_path, model_lib)
-    prebuilt_lib_dir = os.path.join(args.artifact_path, "prebuilt", "lib", model_lib)
-    if os.path.exists(lib_dir):
-        lib = tvm.runtime.load_module(lib_dir)
-    elif os.path.exists(prebuilt_lib_dir):
-        lib = tvm.runtime.load_module(prebuilt_lib_dir)
-    else:
-        raise ValueError(
-            f"Unable to find {model_lib} at {lib_dir} or {prebuilt_lib_dir}."
-        )
-
-    local_model_path = os.path.join(model_path, "params")
-    prebuilt_model_path = os.path.join(
-        args.artifact_path, "prebuilt", f"mlc-chat-{model_dir}"
+    chat_mod = ChatModule(
+        model=args.model + "-" + args.quantization,
+        device=args.device_name + ":" + str(args.device_id),
+        chat_config=chat_config
     )
-    if os.path.exists(local_model_path):
-        configure_model(chat_config, prebuilt_model_path)
-        chat_mod.reload(lib=lib, model_path=local_model_path)
-    elif os.path.exists(prebuilt_model_path):
-        configure_model(chat_config, prebuilt_model_path)
-        chat_mod.reload(lib=lib, model_path=prebuilt_model_path)
-    else:
-        raise ValueError(
-            f"Unable to find model params at {local_model_path} or {prebuilt_model_path}."
-        )
-
-    chat_mod.process_system_prompts()
     return chat_mod
+
+
+def default_chat_config(name="default"):
+    return ChatConfig(
+        max_gen_len=4096,
+        conv_config=ConvConfig(
+            name=name,
+            system=JPHOWARD_PROMPT
+        ),
+    )
+
