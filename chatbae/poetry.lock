@@ -841,6 +841,16 @@ MarkupSafe = ">=2.0"
 i18n = ["Babel (>=2.7)"]
 
 [[package]]
+name = "lru-cache"
+version = "0.2.3"
+description = "thread safe lru cache"
+optional = false
+python-versions = "*"
+files = [
+    {file = "lru_cache-0.2.3.tar.gz", hash = "sha256:21cb5738eb8da421e48c373bb350bfbf6856647c05f5548a8be72cdd999ee6d4"},
+]
+
+[[package]]
 name = "mamba"
 version = "0.11.2"
 description = "The definitive testing tool for Python. Born under the banner of Behavior Driven Development."
@@ -950,28 +960,28 @@ dev = ["absl-py", "pyink", "pylint (>=2.6.0)", "pytest", "pytest-xdist"]
 
 [[package]]
 name = "mlc-ai-nightly"
-version = "0.12.dev1385"
+version = "0.12.dev1395"
 description = "TVM: An End to End Tensor IR/DSL Stack for Deep Learning Systems"
 optional = false
 python-versions = "*"
 files = [
-    {file = "mlc_ai_nightly-0.12.dev1385-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:2cd0ed57cf86d89c2e17683041583ce760a17c9746f5460193f138e477e79396"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp310-cp310-macosx_13_0_arm64.whl", hash = "sha256:7ac3a26b98db5ab727b62bb889583e18057b0c1d76f65a1760a9a1b68a6a69e2"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp310-cp310-manylinux_2_28_x86_64.whl", hash = "sha256:f048c8e1b77b2faac072945d62b8e87664fe1346e705388446fae05225220b63"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp310-cp310-win_amd64.whl", hash = "sha256:4fee36d400ee953d35b2bc29e6af47a8f762b025341519ef37e9e7e9f2e6fcba"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp311-cp311-macosx_10_15_x86_64.whl", hash = "sha256:b94da20d66134db57e3e1f404e42911edf835e3091af7ab3351dbc09d1d49532"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp311-cp311-macosx_13_0_arm64.whl", hash = "sha256:2d1b4e90df9e1e508345812301732988c90dfe708da990cab65d5fa036a96c03"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:7a5007828a3e2183681af1676961e5265452c727232cc949cab81ac0890b150d"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp311-cp311-win_amd64.whl", hash = "sha256:63a5cc6f58bbad015e1df5a5cad3220baff895e29514197dfce0b4d46052b54d"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp37-cp37m-manylinux_2_28_x86_64.whl", hash = "sha256:4c20177fb5ed4bfeb919654c6d6b850ff1e80d5c7e3daffad5708053b731e0aa"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp38-cp38-macosx_10_15_x86_64.whl", hash = "sha256:c4601e7d21769f3a7deb6696500e7649cfb57ffd20f9c41a31763dbc764e8abd"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp38-cp38-macosx_13_0_arm64.whl", hash = "sha256:1dbb5b65405cb2c7ce974cec8745ae3843c654751d82b0d8b659c498eda7bd55"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp38-cp38-manylinux_2_28_x86_64.whl", hash = "sha256:b3eab7c15e6f9d452d1801c9d5f5785de0630f7ce63c311fce51b34c82499df8"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp38-cp38-win_amd64.whl", hash = "sha256:97344f5bb8aee9460c8c87973cf3567e88a3a74830487f33c4fe5857f7da5ef2"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:d616bc3089adab8970ef28d47aa1bf70297ef7a1b5b0c666a54690dabcdccaf8"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp39-cp39-macosx_13_0_arm64.whl", hash = "sha256:10d60bb6b1abd6678d87d141f087203864e7dfc365a056226677e8f2a7144998"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:90e6007bdf41a7b563ce17aa5b04ebcafe4e8dee8819859d13d0a2cd06633e32"},
-    {file = "mlc_ai_nightly-0.12.dev1385-cp39-cp39-win_amd64.whl", hash = "sha256:7c7751ec6bb0d4c9c294567f0f2e3177f585b282d589939f23cb58fc79cbeb79"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:ebd58f7544ac8bd40a59d43f1604524f08359e401e97c7525a1770fca4a7a4f0"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp310-cp310-macosx_13_0_arm64.whl", hash = "sha256:bdf637234f9efc7a002a0e606a65290f86cc670026e361fcbf053854509ead93"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp310-cp310-manylinux_2_28_x86_64.whl", hash = "sha256:01d37ebf2d68dea9bc5556898ee6fb47d6a1eafd59402091c97c4ce21e7a1e2a"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp310-cp310-win_amd64.whl", hash = "sha256:4e2cd755babf5636c2efc529dd6a3db5d1e9f49b644b013a6152347ca921ab4e"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp311-cp311-macosx_10_15_x86_64.whl", hash = "sha256:49525dbf639dcafd99628a47a37f9e610e43c09c92f81808e9aab80c362ab3ea"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp311-cp311-macosx_13_0_arm64.whl", hash = "sha256:693223c73bbed32113d0967ac25b18f622a833c3930ee5e203fe24bae909303f"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:efab44497beb7201876eadb19150baae70ecffd62d94c838c4e19d8420e5f9ae"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp311-cp311-win_amd64.whl", hash = "sha256:83275dfa64b9f9c5763c67ea5fa6d11cb5370be847cd310ef5b2d371c651c037"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp37-cp37m-manylinux_2_28_x86_64.whl", hash = "sha256:d03bfde4fed1f14335d325bdd3abb07e5142fac803cfd8cb3de419c26f23bbae"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp38-cp38-macosx_10_15_x86_64.whl", hash = "sha256:823a1f2f3bf482235c767d3fb40c2355c4830f85d2e49bffdcf4e30c59b098b5"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp38-cp38-macosx_13_0_arm64.whl", hash = "sha256:be5e1690fdbdd28b6dfdf8cbb737a811f2171160317b89e6dde58044ec10a5fd"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp38-cp38-manylinux_2_28_x86_64.whl", hash = "sha256:1c83872ccc86ff0bf79e0da4f02729ce0759bb41ece9167728905a7efd46ccfc"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp38-cp38-win_amd64.whl", hash = "sha256:cc95f1103330fc59226fbc8c11d7c0a72459a08cebc519bf89f10de09ac1e3fd"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:7ac63a37106aa4d6bda1593217034516eb905839054f75e8b17388a3aae0b4e3"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp39-cp39-macosx_13_0_arm64.whl", hash = "sha256:1063141a3129f7703936ca65ccec737b66b7ebac7406eac509cf20cfa0ab743d"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:5b10bb51f76a3fb18f8d87cc2215c948480ffa124f1374e48b11d8b305776305"},
+    {file = "mlc_ai_nightly-0.12.dev1395-cp39-cp39-win_amd64.whl", hash = "sha256:778e766999542dbf06e45e99c8871071108cf5e8366c91f010d6d0b5c1a12285"},
 ]
 
 [package.dependencies]
@@ -1010,15 +1020,15 @@ reference = "mlc"
 
 [[package]]
 name = "mlc-chat-nightly"
-version = "0.1.dev325"
+version = "0.1.dev347"
 description = "MLC Chat: an universal runtime running LLMs"
 optional = false
 python-versions = "*"
 files = [
-    {file = "mlc_chat_nightly-0.1.dev325-cp310-cp310-macosx_13_0_arm64.whl", hash = "sha256:ed7a0b1708a2c0af1fc4f04c5eb70e7042312ed56432885afd24a9e84bcadd73"},
-    {file = "mlc_chat_nightly-0.1.dev325-cp311-cp311-macosx_13_0_arm64.whl", hash = "sha256:e4405b6e7fa9deee5285d013ec7c28705774592f1966aa29db17dafb6d7203b9"},
-    {file = "mlc_chat_nightly-0.1.dev325-cp38-cp38-macosx_13_0_arm64.whl", hash = "sha256:babed0619a89f2b4d6c10644101da4a4663510d5a3e0e12c18e2c1495ec7ab12"},
-    {file = "mlc_chat_nightly-0.1.dev325-cp39-cp39-macosx_13_0_arm64.whl", hash = "sha256:7f5f283a8d11abc70ce49589ea62557040875c61ca9e9655768a2522a28a2066"},
+    {file = "mlc_chat_nightly-0.1.dev347-cp310-cp310-macosx_13_0_arm64.whl", hash = "sha256:a94b1e983a42160a77a8aa7466fa611322718dc199af2517a21b939fb2ad5322"},
+    {file = "mlc_chat_nightly-0.1.dev347-cp311-cp311-macosx_13_0_arm64.whl", hash = "sha256:e45cd0ad9f54a3e6c3db6e9c05beb6674386ba962867c30bfaa250e89d05b733"},
+    {file = "mlc_chat_nightly-0.1.dev347-cp38-cp38-macosx_13_0_arm64.whl", hash = "sha256:5ec9e3c3cf72378945187e293474db8fcf57ae4c4a9b830bc06b885852c17f9f"},
+    {file = "mlc_chat_nightly-0.1.dev347-cp39-cp39-macosx_13_0_arm64.whl", hash = "sha256:fdc771f6de2b167460b8f436834f45b80fc3f95c70cedb1418a1ae72a8fc2f6a"},
 ]
 
 [package.dependencies]
@@ -2368,4 +2378,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11,<3.12"
-content-hash = "4570b1cbff6c4ef6c8d8dab3a37b3994cbba3b8da058b3f04e678ad6eaf40253"
+content-hash = "3feb8a24521be603ab1948caef67f035ccb4746d6beacbdf4cc0c5d31b0a2b30"
