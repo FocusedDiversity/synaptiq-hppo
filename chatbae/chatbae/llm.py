@@ -85,6 +85,7 @@ def init_mlc_chat(args: MLCArgs, chat_config: ChatConfig) -> ChatModule:
         device=args.device_name + ":" + str(args.device_id),
         chat_config=chat_config
     )
+    chat_mod._process_system_prompts()
     return chat_mod
 
 

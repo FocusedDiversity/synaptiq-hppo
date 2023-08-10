@@ -27,7 +27,7 @@ async def init_slack_bot(chat_mod_factory):
         chat_mod = user_chat_mod(event["user"])
         prompt = event["text"]
         if "##reset" in prompt:
-            chat_mod._reset()
+            chat_mod.reset_chat()
             return
 
         chat_mod._prefill(input=prompt)
@@ -37,7 +37,9 @@ async def init_slack_bot(chat_mod_factory):
             response = o.update(chat_mod._get_message())
             if response:
                 await say(response)
-        await say(o.update(chat_mod._get_message(), final=True))
+        final = o.update(chat_mod._get_message(), final=True)
+        if final:
+            await say(final)
 
     @app.command("/hello-bolt-python")
     async def command(ack, body, respond):
