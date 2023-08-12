@@ -173,6 +173,7 @@ files = [
 ]
 
 [package.dependencies]
+exceptiongroup = {version = "*", markers = "python_version < \"3.11\""}
 idna = ">=2.8"
 sniffio = ">=1.1"
 
@@ -268,6 +269,7 @@ mypy-extensions = ">=0.4.3"
 packaging = ">=22.0"
 pathspec = ">=0.9.0"
 platformdirs = ">=2"
+tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
 
 [package.extras]
 colorama = ["colorama (>=0.4.3)"]
@@ -620,6 +622,20 @@ files = [
 ]
 
 [[package]]
+name = "exceptiongroup"
+version = "1.1.2"
+description = "Backport of PEP 654 (exception groups)"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "exceptiongroup-1.1.2-py3-none-any.whl", hash = "sha256:e346e69d186172ca7cf029c8c1d16235aa0e04035e5750b4b95039e65204328f"},
+    {file = "exceptiongroup-1.1.2.tar.gz", hash = "sha256:12c3e887d6485d16943a309616de20ae5582633e0a2eda17f4e10fd61c1e8af5"},
+]
+
+[package.extras]
+test = ["pytest (>=6)"]
+
+[[package]]
 name = "fastapi"
 version = "0.101.0"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
@@ -959,29 +975,17 @@ numpy = [
 dev = ["absl-py", "pyink", "pylint (>=2.6.0)", "pytest", "pytest-xdist"]
 
 [[package]]
-name = "mlc-ai-nightly"
+name = "mlc-ai-nightly-cu121"
 version = "0.12.dev1395"
 description = "TVM: An End to End Tensor IR/DSL Stack for Deep Learning Systems"
 optional = false
 python-versions = "*"
 files = [
-    {file = "mlc_ai_nightly-0.12.dev1395-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:5466a0ba620348b7efa14aa1c3aece09e0e82013330ef9dcc518009ac690b59d"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp310-cp310-macosx_13_0_arm64.whl", hash = "sha256:ea4e088a66eb02b10d4a486d21bfb7f01f207bed13112a668c1e934ed99e4ad7"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp310-cp310-manylinux_2_28_x86_64.whl", hash = "sha256:a21192573f4acc02686a0efd801fd250c2faa89f30f3aee216abfa33608fdad0"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp310-cp310-win_amd64.whl", hash = "sha256:d1d20ae53a2229ab6df21977638960a552cbe19cad9eef048a87371ba87c7d3f"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp311-cp311-macosx_10_15_x86_64.whl", hash = "sha256:19e248c9b7233073332b8beae2e5ce41c1f90f06df8d857de8b0f6a3f0b4dfa8"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp311-cp311-macosx_13_0_arm64.whl", hash = "sha256:f5211f20fa00ed5c27bcc006b96cfa76691e6eb68802d2a2211be4c4eb0f9960"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:72eb09a64189ab6703c99bcfa102f8edb9493d6f07b021a11f2c8224e83aafcc"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp311-cp311-win_amd64.whl", hash = "sha256:4ac0ae21c79a61d7efae88f3e7eb3af2d6ea73734e38c5a6867195f52caebc2d"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp37-cp37m-manylinux_2_28_x86_64.whl", hash = "sha256:f07e35a8f734e4bba522249138bf7de8336e3da13bd7cdb16d45ce38fd144b75"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp38-cp38-macosx_10_15_x86_64.whl", hash = "sha256:7b5217b093ed4bff1411a5712bb704964e714da743a9575db320f8b2a1726ac2"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp38-cp38-macosx_13_0_arm64.whl", hash = "sha256:3bbcd1ca361800c9371dacdaab4f4bcf2cc978d12679ab353d56db7d780d22ca"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp38-cp38-manylinux_2_28_x86_64.whl", hash = "sha256:f7dee21d607f005af483e566dcd040c8784cf572624656c92fd7ebb484df0159"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp38-cp38-win_amd64.whl", hash = "sha256:ee04d47a2286f161c053fcd5b877989f94fd307315940c06330948e0b67e900c"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:a1318487affc932d02fd5640bd8af7c327a76521947601a96ffbf6fe22d2df18"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp39-cp39-macosx_13_0_arm64.whl", hash = "sha256:2f46914ef8edceb6af972eb0a5fb965fe8383480250b1318da629f304d667802"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:3e5d61ccc50a82483bb116450fbef6d72cf6f44eb1967a348d11bf5b92de5a36"},
-    {file = "mlc_ai_nightly-0.12.dev1395-cp39-cp39-win_amd64.whl", hash = "sha256:54528c55dc8af6695c6493add723b9b00c3f3305e2542ed9b94a58d8e175768f"},
+    {file = "mlc_ai_nightly_cu121-0.12.dev1395-cp310-cp310-manylinux_2_28_x86_64.whl", hash = "sha256:5bdfdf56a7af8e38769355e4f520172beaef2307e9e669f1672825e22ea3e4b2"},
+    {file = "mlc_ai_nightly_cu121-0.12.dev1395-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:9622cf1021fdea9b44ed199a27f87969fd5670374c92676d53eb931c5ab7effa"},
+    {file = "mlc_ai_nightly_cu121-0.12.dev1395-cp37-cp37m-manylinux_2_28_x86_64.whl", hash = "sha256:8a78521c00ec19f27de9a34474bbfe1909ea91f72a3ee6c196bbe909d9c32218"},
+    {file = "mlc_ai_nightly_cu121-0.12.dev1395-cp38-cp38-manylinux_2_28_x86_64.whl", hash = "sha256:caedda3836334215444a90f4af099b4cd363ba781aabc602ba1e277c42834366"},
+    {file = "mlc_ai_nightly_cu121-0.12.dev1395-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:0691c8eba962909c62261d89eda5275dded4798dc890217f271b1b413578757f"},
 ]
 
 [package.dependencies]
@@ -1019,25 +1023,17 @@ url = "https://mlc.ai/wheels.html"
 reference = "mlc"
 
 [[package]]
-name = "mlc-chat-nightly"
+name = "mlc-chat-nightly-cu121"
 version = "0.1.dev356"
 description = "MLC Chat: an universal runtime running LLMs"
 optional = false
 python-versions = "*"
 files = [
-    {file = "mlc_chat_nightly-0.1.dev356-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:40cd18e781aae438336fd967e89566c5d7027234bd15afc60508a3da2b98196f"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp310-cp310-manylinux_2_28_x86_64.whl", hash = "sha256:745d8a7df796b17bcbd244d1e01862248e8be9a53aa66064caf5ac2158424dd4"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp310-cp310-win_amd64.whl", hash = "sha256:d012829937f5f6f3895b2f97a1d61296303b8db57d7a17da3b5ac35eb60afce3"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp311-cp311-macosx_10_15_x86_64.whl", hash = "sha256:7d60f3542ea549f1b1458e4ee5cbf86f13ff63208040564a77a4e74204315c24"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:65ea58cb9c8eab1378de6a822fc9b1cb533a92af49c76aa2b5b0fc85051e1e33"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp311-cp311-win_amd64.whl", hash = "sha256:76c0d2de49251a11c95bbbc1675b764e77cd834db170fc75506a65bf8a7783b0"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp37-cp37m-manylinux_2_28_x86_64.whl", hash = "sha256:86179c32cc850532506c497d972c35cc5e41d714953f7bb39029408328309212"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp38-cp38-macosx_10_15_x86_64.whl", hash = "sha256:67e60e8a545d1e0df9551027aa4288997b9253cfcbb2c0c0a74968041d850bbb"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp38-cp38-manylinux_2_28_x86_64.whl", hash = "sha256:df39eeda92a616ec0d399c8c488bd313cf1c72c03d729a298d81fc7088d8e25d"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp38-cp38-win_amd64.whl", hash = "sha256:9251569e318b049ca213a2ed4f162e8e2f678fba57ea5697e6acdb2cc036f31c"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:a623e82f11d57aae4d9cebd72480ca442daba766edf8c45131e061fadf6a51e6"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:271b626cc0be3a74da1dd9718aae01e1a8fe098842247e317635b78965c63048"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp39-cp39-win_amd64.whl", hash = "sha256:b57700f65de7a2d70b8f3d795068276b305a634df1ac695e39ccd4fb8b827033"},
+    {file = "mlc_chat_nightly_cu121-0.1.dev356-cp310-cp310-manylinux_2_28_x86_64.whl", hash = "sha256:d7efc35a731bd911614ff4b9e4fc5ecf87d81f3942eef50aced91f05b9756743"},
+    {file = "mlc_chat_nightly_cu121-0.1.dev356-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:ab77dad9386eb664c4cd2b2e1455eac407c8bdb6addd33431b56d80631461c0e"},
+    {file = "mlc_chat_nightly_cu121-0.1.dev356-cp37-cp37m-manylinux_2_28_x86_64.whl", hash = "sha256:b9dc4e013ba50eac13249a7917b07a68d71f6943a68174053440e3ac9fd2ebeb"},
+    {file = "mlc_chat_nightly_cu121-0.1.dev356-cp38-cp38-manylinux_2_28_x86_64.whl", hash = "sha256:e3c2d05118917c02219a02c2707ac9286f4a65bda2d5e69881a4072f591380d6"},
+    {file = "mlc_chat_nightly_cu121-0.1.dev356-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:febdd07e3afa5278812567bd74e58f380d8c61284f734e962d17d7e8faace3c8"},
 ]
 
 [package.dependencies]
@@ -1183,6 +1179,7 @@ files = [
 
 [package.dependencies]
 mypy-extensions = ">=1.0.0"
+tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
 typing-extensions = ">=4.1.0"
 
 [package.extras]
@@ -1566,9 +1563,11 @@ files = [
 
 [package.dependencies]
 colorama = {version = "*", markers = "sys_platform == \"win32\""}
+exceptiongroup = {version = ">=1.0.0rc8", markers = "python_version < \"3.11\""}
 iniconfig = "*"
 packaging = "*"
 pluggy = ">=0.12,<2.0"
+tomli = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
 
 [package.extras]
 testing = ["argcomplete", "attrs (>=19.2.0)", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
@@ -2032,6 +2031,17 @@ docs = ["setuptools-rust", "sphinx", "sphinx-rtd-theme"]
 testing = ["black (==22.3)", "datasets", "numpy", "pytest", "requests"]
 
 [[package]]
+name = "tomli"
+version = "2.0.1"
+description = "A lil' TOML parser"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
+    {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
+]
+
+[[package]]
 name = "torch"
 version = "2.0.1"
 description = "Tensors and Dynamic neural networks in Python with strong GPU acceleration"
@@ -2291,6 +2301,7 @@ files = [
 [package.dependencies]
 click = ">=7.0"
 h11 = ">=0.8"
+typing-extensions = {version = ">=4.0", markers = "python_version < \"3.11\""}
 
 [package.extras]
 standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)", "pyyaml (>=5.1)", "uvloop (>=0.14.0,!=0.15.0,!=0.15.1)", "watchfiles (>=0.13)", "websockets (>=10.4)"]
@@ -2384,5 +2395,5 @@ multidict = ">=4.0"
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.11,<3.12"
-content-hash = "8d9003373e28f022271d0c873979d4a46afc8765a9a3bf86d071495ae07d124a"
+python-versions = "^3.10,<3.12"
+content-hash = "5584bbbddb45f7ec4f6931323b0eda439a15e9eae616203fec44c11cb5b8ca7d"

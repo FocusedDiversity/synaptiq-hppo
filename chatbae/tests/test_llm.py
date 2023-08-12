@@ -12,7 +12,7 @@ def chat_mod():
         MLCArgs(
             model="Llama-2-7b-chat-hf",
             quantization="q4f16_1",
-            device_name="metal",
+            device_name="cuda",
             device_id=0,
         ),
         ChatConfig(
