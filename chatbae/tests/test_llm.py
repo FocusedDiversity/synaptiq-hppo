@@ -3,7 +3,7 @@ from collections import namedtuple
 import pytest
 from mlc_chat import ChatConfig, ConvConfig
 
-from chatbae.llm import init_mlc_chat, MLCArgs
+from chatbae.llm import init_mlc_chat, MLCArgs, JPHOWARD_PROMPT
 
 
 @pytest.fixture(scope="session")
@@ -19,20 +19,7 @@ def chat_mod():
             temperature=1.0,
             max_gen_len=4096,
             conv_config=ConvConfig(
-                system="""[INST] <<SYS>>
-                
-                You are a helpful, respectful and honest assistant. 
-                
-                Always answer as helpfully as possible, while being safe.
-                
-                Please ensure that your responses are positive in nature. 
-                
-                If a question does not make any sense, or is not factually coherent, 
-                explain why instead of answering something not correct. 
-                
-                If you don't know the answer to a question, please don't share false information.
-                <</SYS>>
-                """,
+                system=JPHOWARD_PROMPT,
             ),
         ),
     )
