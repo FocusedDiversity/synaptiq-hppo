@@ -3,7 +3,7 @@ from collections import namedtuple
 import pytest
 from mlc_chat import ChatConfig, ConvConfig
 
-from chatbae.llm import init_mlc_chat, MLCArgs, MLCChatConfig, MLCChatConvConfig
+from chatbae.llm import init_mlc_chat, MLCArgs
 
 
 @pytest.fixture(scope="session")
@@ -16,7 +16,6 @@ def chat_mod():
             device_id=0,
         ),
         ChatConfig(
-            name="test",
             temperature=1.0,
             max_gen_len=4096,
             conv_config=ConvConfig(
