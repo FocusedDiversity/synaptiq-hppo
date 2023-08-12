@@ -23,8 +23,8 @@ aiohttp = "^3.8.5"
 mamba = "^0.11.2"
 python-dotenv-vault = "^0.6.1"
 lru-cache = "^0.2.3"
-mlc-ai-nightly = {version = "0.12.dev1395", source = "mlc"}
-mlc-chat-nightly = {version = "0.1.dev356", source = "mlc"}
+mlc-ai-nightly = {version = "^0.12.dev", source = "mlc"}
+mlc-chat-nightly = {version = "=0.1.dev351", source = "mlc"}
 
 
 [[tool.poetry.source]]

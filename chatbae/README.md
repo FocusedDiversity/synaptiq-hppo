@@ -11,6 +11,8 @@ Note that currently mlc is published as nightlies and
 they are deleting the old ones pretty rapidly, so it may be
 necessary to manually update the revision in pyproject.toml.
 
+In some cases, "poetry lock" will be enough to figure it out.
+
 Good luck if they change the API!
 
 ## Download model and weights

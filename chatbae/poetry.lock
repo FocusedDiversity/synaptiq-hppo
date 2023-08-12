@@ -1020,24 +1020,15 @@ reference = "mlc"
 
 [[package]]
 name = "mlc-chat-nightly"
-version = "0.1.dev356"
+version = "0.1.dev351"
 description = "MLC Chat: an universal runtime running LLMs"
 optional = false
 python-versions = "*"
 files = [
-    {file = "mlc_chat_nightly-0.1.dev356-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:40cd18e781aae438336fd967e89566c5d7027234bd15afc60508a3da2b98196f"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp310-cp310-manylinux_2_28_x86_64.whl", hash = "sha256:745d8a7df796b17bcbd244d1e01862248e8be9a53aa66064caf5ac2158424dd4"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp310-cp310-win_amd64.whl", hash = "sha256:d012829937f5f6f3895b2f97a1d61296303b8db57d7a17da3b5ac35eb60afce3"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp311-cp311-macosx_10_15_x86_64.whl", hash = "sha256:7d60f3542ea549f1b1458e4ee5cbf86f13ff63208040564a77a4e74204315c24"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:65ea58cb9c8eab1378de6a822fc9b1cb533a92af49c76aa2b5b0fc85051e1e33"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp311-cp311-win_amd64.whl", hash = "sha256:76c0d2de49251a11c95bbbc1675b764e77cd834db170fc75506a65bf8a7783b0"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp37-cp37m-manylinux_2_28_x86_64.whl", hash = "sha256:86179c32cc850532506c497d972c35cc5e41d714953f7bb39029408328309212"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp38-cp38-macosx_10_15_x86_64.whl", hash = "sha256:67e60e8a545d1e0df9551027aa4288997b9253cfcbb2c0c0a74968041d850bbb"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp38-cp38-manylinux_2_28_x86_64.whl", hash = "sha256:df39eeda92a616ec0d399c8c488bd313cf1c72c03d729a298d81fc7088d8e25d"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp38-cp38-win_amd64.whl", hash = "sha256:9251569e318b049ca213a2ed4f162e8e2f678fba57ea5697e6acdb2cc036f31c"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:a623e82f11d57aae4d9cebd72480ca442daba766edf8c45131e061fadf6a51e6"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:271b626cc0be3a74da1dd9718aae01e1a8fe098842247e317635b78965c63048"},
-    {file = "mlc_chat_nightly-0.1.dev356-cp39-cp39-win_amd64.whl", hash = "sha256:b57700f65de7a2d70b8f3d795068276b305a634df1ac695e39ccd4fb8b827033"},
+    {file = "mlc_chat_nightly-0.1.dev351-cp310-cp310-macosx_13_0_arm64.whl", hash = "sha256:6ba48b943768d1569e638a9a7af60bb14bd31830583b2970de449c2a62b6d3b5"},
+    {file = "mlc_chat_nightly-0.1.dev351-cp311-cp311-macosx_13_0_arm64.whl", hash = "sha256:a8496dd3ae88b9c1de5986171aa2bbdb2535dbf1be2c90bd1f9f4f6fed4b1438"},
+    {file = "mlc_chat_nightly-0.1.dev351-cp38-cp38-macosx_13_0_arm64.whl", hash = "sha256:dc82d50391afb4715c6a22d8d2726a8c8569d3c8783b8bd3b9b425b19eeea004"},
+    {file = "mlc_chat_nightly-0.1.dev351-cp39-cp39-macosx_13_0_arm64.whl", hash = "sha256:374911339c976e3cc13af2eb70ec81e07e4b1cda2cf41faa298d3da5c8c9062d"},
 ]
 
 [package.dependencies]
@@ -2385,4 +2376,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11,<3.12"
-content-hash = "8d9003373e28f022271d0c873979d4a46afc8765a9a3bf86d071495ae07d124a"
+content-hash = "1052912b7ed89dfd3b2c59b14e9d151480dc97506c83835eb8131d7e0c09b094"
