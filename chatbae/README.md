@@ -7,6 +7,12 @@ pyenv install 3.11.2
 poetry env use python
 poetry install
 
+Note that currently mlc is published as nightlies and
+they are deleting the old ones pretty rapidly, so it may be
+necessary to manually update the revision in pyproject.toml.
+
+Good luck if they change the API!
+
 ## Download model and weights
 
 Refer to https://mlc.ai/mlc-llm/docs/get_started/try_out.html.

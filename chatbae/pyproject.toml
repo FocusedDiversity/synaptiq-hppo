@@ -24,7 +24,7 @@ mamba = "^0.11.2"
 python-dotenv-vault = "^0.6.1"
 lru-cache = "^0.2.3"
 mlc-ai-nightly = {version = "0.12.dev1395", source = "mlc"}
-mlc-chat-nightly = {version = "0.1.dev347", source = "mlc"}
+mlc-chat-nightly = {version = "0.1.dev356", source = "mlc"}
 
 
 [[tool.poetry.source]]
