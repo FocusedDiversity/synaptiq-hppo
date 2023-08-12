@@ -10,7 +10,7 @@ from chatbae.llm import init_mlc_chat, MLCArgs
 def chat_mod():
     chat_mod = init_mlc_chat(
         MLCArgs(
-            model="Llama-2-7b-chat-hf",
+            model="Llama-2-13b-chat-hf",
             quantization="q4f16_1",
             device_name="cuda",
             device_id=0,
