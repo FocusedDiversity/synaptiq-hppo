@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 def _parse_args():
     args = argparse.ArgumentParser("MLC Chat Slack API")
-    args.add_argument("--model", type=str, default="Llama-2-70b-chat-hf")
+    args.add_argument("--model", type=str, default="Llama-2-13b-chat-hf")
     args.add_argument(
         "--quantization",
         type=str,
