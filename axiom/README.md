@@ -6,9 +6,9 @@ The task is daunting and has many challenges to it (most revolving around ground
 
 ## Milestones
 ### Summary
-* [ ] Milestone 0 - Create a browser extension `extension`
-* [ ] Milestone 1 - Highlight the word "the" on every page `js/css`
-* [ ] Milestone 2 - Highlight sentences/phrases that summarize a news article `llm`
+* [X] Milestone 0 - Create a Chrome extension that hightlights the workd "the" on every page `extension`
+* [ ] Milestone 1 - Make Chrome extension cross-platform `extension/js`
+* [ ] Milestone 2 - Highlight sentences/phrases that summarize a news article `llm/js`
 * [ ] Milestone 3 - Summarize an abstract of the article when clicking on the headline `llm`
 * [ ] Milestone 4 - Determine sentences that need to be fact checked with a classification model `ml`
 * [ ] Milestone 5 - Highlight and provide a "dummy" popup response for fact-checkable sentences `js/css`
