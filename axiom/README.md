@@ -29,6 +29,6 @@ The task is daunting and has many challenges to it (most revolving around ground
 ## Known Issues
 
 ## Contributing
-This repo is primarily maintained by [Gregg Tabot](gregg.tabot@snyaptiq.ai), but contributions are welcome!
+This repo is primarily maintained by [Gregg Tabot](mailto:gregg.tabot@snyaptiq.ai), but contributions are welcome!
 
 If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
