@@ -18,11 +18,12 @@ The task is daunting and has many challenges to it (most revolving around ground
     * data storage/representation/querying/serving
 
 ## Installation
-1. Download or clone this repository to your local machine.
-2. Open your preferred browser that supports Manifest V3 (Safari, Firefox, or Chromium-based browsers – such as Chrome, Edge, and Opera).
-3. Navigate to the browser's extension settings.
-4. Enable "Developer Mode" or a similar option.
-5. Click on "Load Unpacked" or "Load extension" and select the directory where you cloned/downloaded this repository.
+Download or clone this repository to your local machine.
+
+### Chrome
+1. Navigate to the browser's extension settings: `chrome://extensions/`
+3. Enable "Developer Mode" in the top-right corner
+4. Click on "Load Unpacked" and select the `axiom/src` directory
 
 ## Usage
 
