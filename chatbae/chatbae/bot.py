@@ -1,5 +1,6 @@
 import os
 from functools import lru_cache
+from chatbae.digest import digest
 
 from slack_bolt.adapter.socket_mode.aiohttp import AsyncSocketModeHandler
 from slack_bolt.app.async_app import AsyncApp
@@ -29,6 +30,9 @@ async def init_slack_bot(chat_mod_factory):
         if "##reset" in prompt:
             chat_mod.reset_chat()
             return
+        elif "plugin:digest" in prompt:
+            summary = digest(chat_mod, prompt)
+            await say(summary)
 
         chat_mod._prefill(input=prompt)
         o = ResponseGenerator()

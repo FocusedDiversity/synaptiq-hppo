@@ -46,6 +46,7 @@ addopts = "-ra -q"
 testpaths = [
     "tests"
 ]
+markers = ["internet"]
 
 
 [tool.poetry.group.dev.dependencies]
