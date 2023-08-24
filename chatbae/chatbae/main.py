@@ -6,7 +6,7 @@ from dotenv_vault import load_dotenv
 from mlc_chat.chat_module import quantization_keys
 
 from chatbae.bot import init_slack_bot
-from chatbae.llm import init_mlc_chat, MLCArgs, default_chat_config
+from chatbae.llm import MLCArgs, default_chat_config, init_mlc_chat
 
 load_dotenv()
 logger = logging.getLogger(__name__)

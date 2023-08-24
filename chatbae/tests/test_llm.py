@@ -3,7 +3,7 @@ from collections import namedtuple
 import pytest
 from mlc_chat import ChatConfig, ConvConfig
 
-from chatbae.llm import init_mlc_chat, MLCArgs, JPHOWARD_PROMPT
+from chatbae.llm import JPHOWARD_PROMPT, MLCArgs, init_mlc_chat
 
 
 @pytest.fixture(scope="session")

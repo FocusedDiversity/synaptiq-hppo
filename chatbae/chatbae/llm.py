@@ -2,11 +2,11 @@ import json
 import os
 import subprocess
 import sys
-from dataclasses import dataclass, fields, asdict, is_dataclass
+from dataclasses import asdict, dataclass, fields, is_dataclass
 from typing import Optional
 
 import tvm
-from mlc_chat import ChatModule, ChatConfig, ConvConfig
+from mlc_chat import ChatConfig, ChatModule, ConvConfig
 
 
 def _shared_lib_suffix():
