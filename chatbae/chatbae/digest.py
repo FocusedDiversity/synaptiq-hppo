@@ -13,7 +13,6 @@ def scrape(url: str, length: int = 1024) -> str:
 
 
 def harvest_url(prompt: str) -> str:
-    # urls = re.search("(?P<url>https?://[^\s]+)", prompt).group("url")
     urls = re.findall(r"(https?://\S+)", prompt)
     print(urls)
     return urls[0]
