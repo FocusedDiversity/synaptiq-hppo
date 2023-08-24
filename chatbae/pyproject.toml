@@ -24,7 +24,9 @@ mamba = "^0.11.2"
 python-dotenv-vault = "^0.6.1"
 lru-cache = "^0.2.3"
 mlc-ai-nightly = {version = "^0.12.dev", source = "mlc"}
-mlc-chat-nightly = {version = "=0.1.dev351", source = "mlc"}
+mlc-chat-nightly = {version = "=0.1.dev377", source = "mlc"}
+requests = "^2.31.0"
+beautifulsoup4 = "^4.12.2"
 
 
 [[tool.poetry.source]]
@@ -50,6 +52,7 @@ testpaths = [
 black = "^23.7.0"
 pytest = "^7.4.0"
 mypy = "^1.4.1"
+isort = "^5.12.0"
 
 [build-system]
 requires = ["poetry-core"]
