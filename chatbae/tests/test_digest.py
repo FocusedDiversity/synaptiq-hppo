@@ -1,5 +1,6 @@
-from chatbae.digest import digest
 import pytest
+
+from chatbae.digest import digest
 
 
 @pytest.mark.internet

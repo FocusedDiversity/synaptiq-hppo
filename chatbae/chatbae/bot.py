@@ -1,10 +1,10 @@
 import os
 from functools import lru_cache
-from chatbae.digest import digest
 
 from slack_bolt.adapter.socket_mode.aiohttp import AsyncSocketModeHandler
 from slack_bolt.app.async_app import AsyncApp
 
+from chatbae.digest import digest
 from chatbae.response_generator import ResponseGenerator
 
 SLACK_APP_TOKEN = os.getenv("SLACK_APP_TOKEN")

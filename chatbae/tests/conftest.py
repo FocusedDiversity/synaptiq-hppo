@@ -1,7 +1,7 @@
 import pytest
+from mlc_chat import ChatConfig, ConvConfig
 
 from chatbae.llm import JPHOWARD_PROMPT, MLCArgs, init_mlc_chat
-from mlc_chat import ChatConfig, ConvConfig
 
 
 def pytest_collection_modifyitems(config, items):
