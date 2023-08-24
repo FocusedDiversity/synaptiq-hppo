@@ -19,7 +19,7 @@ def _parse_args():
         "--quantization",
         type=str,
         choices=quantization_keys(),
-        default='q4f16_1',
+        default="q4f16_1",
     )
     args.add_argument("--device-name", type=str, default="metal")
     args.add_argument("--device-id", type=int, default=0)
@@ -27,12 +27,15 @@ def _parse_args():
     parsed = args.parse_args()
     return parsed
 
+
 def get_chat_mod(args):
     def get_bot(user):
         mlc_args = MLCArgs(**vars(args))
         chat_config = default_chat_config(user)
         return init_mlc_chat(mlc_args, chat_config)
+
     return get_bot
+
 
 async def main():
     args = _parse_args()
