@@ -18,3 +18,4 @@ COPY pyproject.toml poetry.lock README.md /app/
 RUN mkdir /app/chatbae && touch /app/chatbae/__init__.py
 RUN poetry install
 COPY . /app/
+COPY .env /app/.env
