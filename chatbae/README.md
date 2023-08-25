@@ -3,9 +3,12 @@
 On an apple silicon mac with osx 13:
 
 ## Install python stuff
+
+```sh
 pyenv install 3.11.2
 poetry env use python
 poetry install
+```
 
 Note that currently mlc is published as nightlies and
 they are deleting the old ones pretty rapidly, so it may be
@@ -40,4 +43,7 @@ EOF
 ```
 
 ## Start the server
+
+```sh
 poetry run python -m chatbae.main
+```
