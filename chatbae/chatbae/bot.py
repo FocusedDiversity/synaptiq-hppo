@@ -4,6 +4,7 @@ from functools import lru_cache
 from slack_bolt.adapter.socket_mode.aiohttp import AsyncSocketModeHandler
 from slack_bolt.app.async_app import AsyncApp
 
+from chatbae.digest import digest
 from chatbae.response_generator import ResponseGenerator
 
 SLACK_APP_TOKEN = os.getenv("SLACK_APP_TOKEN")
@@ -29,6 +30,9 @@ async def init_slack_bot(chat_mod_factory):
         if "##reset" in prompt:
             chat_mod.reset_chat()
             return
+        elif "plugin:digest" in prompt:
+            summary = digest(chat_mod, prompt)
+            await say(summary)
 
         chat_mod._prefill(input=prompt)
         o = ResponseGenerator()

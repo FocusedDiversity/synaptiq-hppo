@@ -2,11 +2,11 @@ import json
 import os
 import subprocess
 import sys
-from dataclasses import dataclass, fields, asdict, is_dataclass
+from dataclasses import asdict, dataclass, fields, is_dataclass
 from typing import Optional
 
 import tvm
-from mlc_chat import ChatModule, ChatConfig, ConvConfig
+from mlc_chat import ChatConfig, ChatModule, ConvConfig
 
 
 def _shared_lib_suffix():
@@ -35,7 +35,8 @@ class MLCArgs:
     device_id: int = 0
 
 
-STRIPPED_LLAMA2_PROMPT = """[INST] <<SYS>>
+STRIPPED_LLAMA2_PROMPT = (
+    """[INST] <<SYS>>
 You are a helpful, respectful and honest assistant. 
 
 Always answer as helpfully as possible, while being safe.
@@ -48,6 +49,7 @@ explain why instead of answering something not correct.
 If you don't know the answer to a question, please don't share false information.
 <</SYS>>
 """,
+)
 
 JPHOWARD_PROMPT = """[INST] <<SYS>>
 You are an autoregressive language model that has been fine-tuned with 
@@ -83,7 +85,7 @@ def init_mlc_chat(args: MLCArgs, chat_config: ChatConfig) -> ChatModule:
     chat_mod = ChatModule(
         model=args.model + "-" + args.quantization,
         device=args.device_name + ":" + str(args.device_id),
-        chat_config=chat_config
+        chat_config=chat_config,
     )
     chat_mod._process_system_prompts()
     return chat_mod
@@ -92,9 +94,5 @@ def init_mlc_chat(args: MLCArgs, chat_config: ChatConfig) -> ChatModule:
 def default_chat_config(name="default"):
     return ChatConfig(
         max_gen_len=4096,
-        conv_config=ConvConfig(
-            name=name,
-            system=JPHOWARD_PROMPT
-        ),
+        conv_config=ConvConfig(name=name, system=JPHOWARD_PROMPT),
     )
-

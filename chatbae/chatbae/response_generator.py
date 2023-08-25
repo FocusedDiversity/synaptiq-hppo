@@ -1,7 +1,7 @@
 from typing import Optional
 
 
-class ResponseGenerator():
+class ResponseGenerator:
     offset: int = 0
 
     def __init__(self):
@@ -11,7 +11,7 @@ class ResponseGenerator():
         self.offset = 0
 
     def update(self, msg: str, final: bool = False) -> Optional[str]:
-        triple_backtick_count = msg[self.offset:].count("```")
+        triple_backtick_count = msg[self.offset :].count("```")
         if triple_backtick_count % 2 == 1:
             return None
 
