@@ -1,14 +1,16 @@
 import os
+import asyncio
 
+import dbutils
 from slack_bolt.adapter.socket_mode.aiohttp import AsyncSocketModeHandler
 from slack_bolt.app.async_app import AsyncApp
 
 # from functools import lru_cache
 # from chatbot.response_generator import ResponseGenerator
 
-SLACK_APP_TOKEN = os.getenv("SLACK_APP_TOKEN")
-SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
-SLACK_SIGNING_SECRET = os.getenv("SLACK_SIGNING_SECRET")
+SLACK_APP_TOKEN = dbutils.secrets.get("hippo", "SLACK_APP_TOKEN")
+SLACK_BOT_TOKEN = dbutils.secrets.get("hippo", "SLACK_BOT_TOKEN")
+SLACK_SIGNING_SECRET = dbutils.secrets.get("hippo", "SLACK_SIGNING_SECRET")
 
 
 # async def init_slack_bot(chat_mod_factory):
@@ -53,3 +55,7 @@ async def init_slack_bot():
 
     handler = AsyncSocketModeHandler(app, SLACK_APP_TOKEN)
     await handler.start_async()
+
+
+if __name__ == "__main__":
+    asyncio.run(init_slack_bot())
