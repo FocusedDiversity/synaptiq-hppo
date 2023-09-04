@@ -452,6 +452,17 @@ test-randomorder = ["pytest-randomly"]
 tox = ["tox"]
 
 [[package]]
+name = "dbutils"
+version = "3.0.3"
+description = "Database connections for multi-threaded environments."
+optional = false
+python-versions = "*"
+files = [
+    {file = "DBUtils-3.0.3-py3-none-any.whl", hash = "sha256:fc162b564263354d99c585ba22ae5f094283dcfa1032f7e07e5f01815b976f1c"},
+    {file = "DBUtils-3.0.3.tar.gz", hash = "sha256:8e48565b12ad2b4b1f214de0294deeb4b28578f5b2abb40d68c2924b64d7e007"},
+]
+
+[[package]]
 name = "exceptiongroup"
 version = "1.1.3"
 description = "Backport of PEP 654 (exception groups)"
@@ -1512,4 +1523,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "ab889d38a929a04d1c4b935eb3ba62cb60525c34651a840357cb0bfec98eb8c2"
+content-hash = "91d648099c33706830c62fdac2a1db22610b381343adcca0df5862b6c339ba8a"
