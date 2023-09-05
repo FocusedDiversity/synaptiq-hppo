@@ -1,12 +1,15 @@
 import os
 import asyncio
 
-import dbutils
+from databricks.sdk import WorkspaceClient
 from slack_bolt.adapter.socket_mode.aiohttp import AsyncSocketModeHandler
 from slack_bolt.app.async_app import AsyncApp
 
 # from functools import lru_cache
 # from chatbot.response_generator import ResponseGenerator
+
+w = WorkspaceClient()
+dbutils = w.dbutils
 
 SLACK_APP_TOKEN = dbutils.secrets.get("hippo", "SLACK_APP_TOKEN")
 SLACK_BOT_TOKEN = dbutils.secrets.get("hippo", "SLACK_BOT_TOKEN")

@@ -14,7 +14,7 @@ python-dotenv-vault = "^0.6.1"
 lru-cache = "^0.2.3"
 requests = "^2.31.0"
 beautifulsoup4 = "^4.12.2"
-dbutils = "^3.0.3"
+databricks-sdk = "^0.8.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"
