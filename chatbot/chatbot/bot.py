@@ -10,7 +10,7 @@ async def init_slack_bot(bot_token: str, signing_secret: str, app_token: str):
     @app.event("message")
     async def event_im_message(event, say):
         user = event["user"]
-        say(
+        await say(
             f"Hi there {user}! I'm not yet configured to do anything but say 'Hi there!'"
         )
 
