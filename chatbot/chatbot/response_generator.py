@@ -11,6 +11,7 @@ class ResponseGenerator:
         self.offset = 0
 
     def update(self, msg: str, final: bool = False) -> Optional[str]:
+        """Keep code blocks inside same message."""
         triple_backtick_count = msg[self.offset :].count("```")
         if triple_backtick_count % 2 == 1:
             return None
