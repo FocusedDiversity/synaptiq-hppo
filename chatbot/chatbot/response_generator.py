@@ -27,6 +27,7 @@ class ResponseGenerator:
             old_offset = self.offset
             self.offset = new_offset
             return msg[old_offset:new_offset]
+
         if final:
             old_offset = self.offset
             self.offset = len(msg)
