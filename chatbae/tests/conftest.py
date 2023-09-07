@@ -20,7 +20,7 @@ def pytest_collection_modifyitems(config, items):
 def chat_mod():
     chat_mod = init_mlc_chat(
         MLCArgs(
-            model="Llama-2-7b-chat-hf",
+            model="mlc-chat-Llama-2-7b-chat-hf",
             quantization="q4f16_1",
             device_name="metal",
             device_id=0,
