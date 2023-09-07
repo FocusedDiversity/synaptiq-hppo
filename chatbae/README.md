@@ -34,6 +34,7 @@ git submodule update --init -- dist/prebuilt/mlc-chat-Llama-2-70b-chat-hf-q4f16_
 ```
 
 ## Set up your app tokens
+Refer to https://api.slack.com/authentication/token-types on where to find the various tokens.
 ```shell
 cat > .env <<-EOF
 SLACK_APP_TOKEN="<APP TOKEN from Slack App>"
