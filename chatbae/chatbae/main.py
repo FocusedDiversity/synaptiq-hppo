@@ -3,7 +3,6 @@ import asyncio
 import logging
 
 from dotenv_vault import load_dotenv
-from mlc_chat.chat_module import quantization_keys
 
 from chatbae.bot import init_slack_bot
 from chatbae.llm import MLCArgs, default_chat_config, init_mlc_chat
@@ -18,7 +17,6 @@ def _parse_args():
     args.add_argument(
         "--quantization",
         type=str,
-        choices=quantization_keys(),
         default="q4f16_1",
     )
     args.add_argument("--device-name", type=str, default="metal")
