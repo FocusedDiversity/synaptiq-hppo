@@ -1,4 +1,9 @@
 # Databricks notebook source
+# MAGIC %pip install slack-bolt
+# MAGIC %pip install xformers
+
+# COMMAND ----------
+
 import asyncio
 
 import nest_asyncio
@@ -96,9 +101,16 @@ def gen_text(prompt: str, use_template=False, **kwargs):
 async def init_slack_bot(bot_token: str, signing_secret: str, app_token: str):
     app = AsyncApp(token=bot_token, signing_secret=signing_secret)
 
+    @app.command("/echo")
+    async def repeat_text(ack, respond, command):
+        # Acknowledge command request
+        await ack()
+        await respond(f"{command['text']}")
+
     @app.event("message")
     async def event_im_message(event, say):
         prompt = ' '.join(event['text'].split())
+        print(f'New Prompt: {prompt}')
         response = gen_text(prompt, max_new_tokens=512)
         await say(response)
 
@@ -112,3 +124,7 @@ nest_asyncio.apply()
 # COMMAND ----------
 
 asyncio.run(init_slack_bot(SLACK_BOT_TOKEN, SLACK_SIGNING_SECRET, SLACK_APP_TOKEN))
+
+# COMMAND ----------
+
+
